@@ -1,0 +1,25 @@
+{
+    "name": "pyrex-fwi/sapar-mfi",
+    "description": "Media files indexer",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Pyrex-Fwi",
+            "email": "yemistikris@hotmail.fr"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Sapar\\Mfi\\": "./"
+        }
+    },
+    "minimum-stability": "dev",
+    "require": {
+        "symfony/finder":"3.*",
+        "pyrex-fwi/sapar-id3":"dev-master",
+        "james-heinrich/getid3": "dev-master"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.4"
+    }
+}

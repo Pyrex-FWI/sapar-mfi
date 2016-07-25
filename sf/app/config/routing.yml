@@ -1,0 +1,7 @@
+sapar_mfi:
+    resource: "@SaparMfiBundle/Resources/config/routing.xml"
+    prefix:   /
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
