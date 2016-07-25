@@ -2,7 +2,8 @@
 
 namespace Sapar\Mfi\Filter;
 
-use Symfony\Component\Finder\SplFileInfo;
+use Sapar\Id3\Metadata\Id3Metadata;
+
 
 /**
  * Class FilterInterface
@@ -13,5 +14,5 @@ interface FilterInterface
     /**
      * @return bool
      */
-    public function accept(SplFileInfo $file);
+    public function accept(Id3Metadata $id3Metadata);
 }

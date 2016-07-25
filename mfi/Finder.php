@@ -3,6 +3,8 @@
 namespace Sapar\Mfi;
 
 use Sapar\Mfi\Filter\ArtistFilter;
+use Sapar\Mfi\Filter\FilterCollection;
+use Sapar\Mfi\Filter\FilterInterface;
 
 /**
  * Class Finder
@@ -11,37 +13,52 @@ use Sapar\Mfi\Filter\ArtistFilter;
 class Finder extends \Symfony\Component\Finder\Finder
 {
     private static $mediaPatterns = array('/.mp3$/', '/.mp4$/', '/.flac$/');
+    /** @var  FilterCollection */
+    private $filterCollecterion;
 
+    /**
+     * Finder constructor.
+     */
     public function __construct()
     {
         parent::__construct();
         $this->files();
-
         foreach (self::$mediaPatterns as $mediaPattern) {
             $this->name($mediaPattern);
         }
 
         $this->ignoreUnreadableDirs(true);
+
+        $this->filterCollecterion = new FilterCollection();
+    }
+
+    public function addMediaFilter(FilterInterface $mediaFilter)
+    {
+        $this->filterCollecterion->add($mediaFilter);
     }
 
     /**
-     * @param $name
-     * @return $this
+     * @return \Iterator|\Symfony\Component\Finder\SplFileInfo[]
      */
-    public function filterByArtistName($name)
+    public function getIterator()
     {
-        $artistFilter = new ArtistFilter($name);
-        $filter = function (\SplFileInfo $file) use ($artistFilter)
-        {
-            gc_enable();
-            $result = $artistFilter->accept($file);
-            gc_collect_cycles();
-            return $result;
-        };
+        $this->filter(function (\SplFileInfo $file) {
+            $data = $this->beforeFilterCollection($file);
 
-        $this->filter($filter);
+            return $this->filterCollecterion->accept($data);
+        });
 
-        return $this;
+        return parent::getIterator();
     }
+
+    /**
+     * @param \SplFileInfo $file
+     * @return \SplFileInfo
+     */
+    public function beforeFilterCollection( \SplFileInfo $file)
+    {
+        return $file;
+    }
+
 
 }

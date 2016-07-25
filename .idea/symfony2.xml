@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Symfony2PluginSettings">
+    <option name="pathToTranslation" value="sf/var/cache/dev/translations" />
+    <option name="directoryToWeb" value="sf/web" />
+    <option name="directoryToApp" value="sf/app" />
+    <option name="pluginEnabled" value="true" />
+    <option name="phpHighlightServices" value="true" />
+  </component>
+</project>

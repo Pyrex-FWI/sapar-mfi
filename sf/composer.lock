@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7ad9fee75a0359058e966ef8cda94804",
-    "content-hash": "29d28367d69c7b574125d72dab355b96",
+    "hash": "828fd8ea8228c3fd111fd92b6301bb96",
+    "content-hash": "6b436adff658c779a334e40f5a54a2db",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1086,18 +1086,65 @@
             "time": "2012-12-21 11:40:51"
         },
         {
-            "name": "pyrex-fwi/sapar-mfi",
+            "name": "pyrex-fwi/id3",
             "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Pyrex-FWI/id3.git",
+                "reference": "daaedc3fa864b69ecdcd41c2b964c0c79cedc9b2"
+            },
             "dist": {
-                "type": "path",
-                "url": "../standalone",
-                "reference": "3ef8447f659709c79ced8d24b757971a6dab4ebb",
-                "shasum": null
+                "type": "zip",
+                "url": "https://api.github.com/repos/Pyrex-FWI/id3/zipball/daaedc3fa864b69ecdcd41c2b964c0c79cedc9b2",
+                "reference": "daaedc3fa864b69ecdcd41c2b964c0c79cedc9b2",
+                "shasum": ""
+            },
+            "require": {
+                "symfony/process": "^3.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "5.1.3"
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Sapar\\Mfi\\": "src/Sapar/Mfi"
+                    "Sapar\\Id3\\": "src",
+                    "Sapar\\Id3\\Test\\": "Test"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christophe Pyree",
+                    "email": "christophe.pyree@gmail.com"
+                }
+            ],
+            "description": "The package lays the basis for the simple manipulation of ID3 tags.You can define readers and writers to manipulate the metadata in read or write.",
+            "time": "2016-07-18 17:26:07"
+        },
+        {
+            "name": "pyrex-fwi/sapar-mfi",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "../mfi",
+                "reference": "1bf2d0816fa55fdbe309dfbf171ab333b0d73299",
+                "shasum": null
+            },
+            "require": {
+                "doctrine/collections": "^1.3",
+                "symfony/finder": "3.*"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Sapar\\Mfi\\": "./"
                 }
             },
             "license": [
@@ -2085,7 +2132,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "pyrex-fwi/sapar-mfi": 20
+        "pyrex-fwi/sapar-mfi": 20,
+        "pyrex-fwi/id3": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

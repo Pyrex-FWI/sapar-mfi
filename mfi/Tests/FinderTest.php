@@ -17,6 +17,7 @@ use Sapar\Mfi\Tests\Iterator\RealIteratorTestCase;
 
 class FinderTest extends RealIteratorTestCase
 {
+
     public function testCreate()
     {
         $this->assertInstanceOf('Sapar\Mfi\Finder', Finder::create());
@@ -34,7 +35,7 @@ class FinderTest extends RealIteratorTestCase
         $finder->files();
         $this->assertIterator($this->toAbsolute(array('foo/bar3.flac', 'test.mp3', 'test.mp4', 'test1.mp3', 'test2.mp4')), $finder->in(self::$tmpDir)->getIterator());
 
-        $it = $this->buildFinder()->in(["/Volumes/Extend/"])->filterByArtistName('Sizzla')->files()->getIterator();
+        $it = $this->buildFinder()->in(["/Volumes/Extend/"])->files()->getIterator();
         foreach ($it as $file) {
             dump($file."");
         }

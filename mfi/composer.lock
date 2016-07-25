@@ -4,70 +4,38 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1f793b7ad4c638d8a003d1bc40c02a9c",
-    "content-hash": "b92dbf8af02fae48ff0af62104b7c8a3",
+    "hash": "5c5532309ace1fa5577c65ce8754f877",
+    "content-hash": "d8dc281433ac1cb2a26bd61b1106e7ea",
     "packages": [
         {
-            "name": "james-heinrich/getid3",
+            "name": "doctrine/collections",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/JamesHeinrich/getID3.git",
-                "reference": "af6c39f01038175698ba3ab53467c36ef76ec78c"
+                "url": "https://github.com/doctrine/collections.git",
+                "reference": "a58af3fd579f850c09a41d4c9fc5be76e9c6a2ab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/JamesHeinrich/getID3/zipball/af6c39f01038175698ba3ab53467c36ef76ec78c",
-                "reference": "af6c39f01038175698ba3ab53467c36ef76ec78c",
+                "url": "https://api.github.com/repos/doctrine/collections/zipball/a58af3fd579f850c09a41d4c9fc5be76e9c6a2ab",
+                "reference": "a58af3fd579f850c09a41d4c9fc5be76e9c6a2ab",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0"
-            },
-            "type": "library",
-            "autoload": {
-                "classmap": [
-                    "getid3/getid3.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL"
-            ],
-            "description": "PHP script that extracts useful information from popular multimedia file formats",
-            "homepage": "http://www.getid3.org/",
-            "keywords": [
-                "codecs",
-                "php",
-                "tags"
-            ],
-            "time": "2016-07-23 22:07:56"
-        },
-        {
-            "name": "pyrex-fwi/sapar-id3",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Pyrex-FWI/sapar-id3.git",
-                "reference": "d8d5997c545c4977dbacbc66227ea257e2a2300b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Pyrex-FWI/sapar-id3/zipball/d8d5997c545c4977dbacbc66227ea257e2a2300b",
-                "reference": "d8d5997c545c4977dbacbc66227ea257e2a2300b",
-                "shasum": ""
-            },
-            "require": {
-                "symfony/process": "^3.1"
+                "php": "^5.3.2 || ^7.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "5.1.3"
+                "phpunit/phpunit": "~4.0"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.3.x-dev"
+                }
+            },
             "autoload": {
-                "psr-4": {
-                    "Sapar\\Id3\\": "src",
-                    "Sapar\\Id3\\Test\\": "Test"
+                "psr-0": {
+                    "Doctrine\\Common\\Collections\\": "lib/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -76,12 +44,34 @@
             ],
             "authors": [
                 {
-                    "name": "Christophe Pyree",
-                    "email": "christophe.pyree@gmail.com"
+                    "name": "Roman Borschel",
+                    "email": "roman@code-factory.org"
+                },
+                {
+                    "name": "Benjamin Eberlei",
+                    "email": "kontakt@beberlei.de"
+                },
+                {
+                    "name": "Guilherme Blanco",
+                    "email": "guilhermeblanco@gmail.com"
+                },
+                {
+                    "name": "Jonathan Wage",
+                    "email": "jonwage@gmail.com"
+                },
+                {
+                    "name": "Johannes Schmitt",
+                    "email": "schmittjoh@gmail.com"
                 }
             ],
-            "description": "The package lays the basis for the simple manipulation of ID3 tags.You can define readers and writers to manipulate the metadata in read or write.",
-            "time": "2016-07-18 17:33:14"
+            "description": "Collections Abstraction library",
+            "homepage": "http://www.doctrine-project.org",
+            "keywords": [
+                "array",
+                "collections",
+                "iterator"
+            ],
+            "time": "2016-07-15 10:02:57"
         },
         {
             "name": "symfony/finder",
@@ -129,55 +119,6 @@
                 }
             ],
             "description": "Symfony Finder Component",
-            "homepage": "https://symfony.com",
-            "time": "2016-06-29 05:43:10"
-        },
-        {
-            "name": "symfony/process",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/process.git",
-                "reference": "cdb8db3590748b544e673f8879269afa3c65460a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/cdb8db3590748b544e673f8879269afa3c65460a",
-                "reference": "cdb8db3590748b544e673f8879269afa3c65460a",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.5.9"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.2-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\Process\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
             "time": "2016-06-29 05:43:10"
         }
@@ -493,12 +434,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "dc59055204181a051d2ae048a0f1be5718151fba"
+                "reference": "5f3f7e736d6319d5f1fc402aff8b026da26709a3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/dc59055204181a051d2ae048a0f1be5718151fba",
-                "reference": "dc59055204181a051d2ae048a0f1be5718151fba",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/5f3f7e736d6319d5f1fc402aff8b026da26709a3",
+                "reference": "5f3f7e736d6319d5f1fc402aff8b026da26709a3",
                 "shasum": ""
             },
             "require": {
@@ -548,7 +489,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2016-06-11 08:49:56"
+            "time": "2016-07-26 14:39:29"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -737,12 +678,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "e150756c40f0a1e63b4a26d8461bc9e8412408ba"
+                "reference": "d1e1d73a5a49e8f963572a46058da2e56d30566d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/e150756c40f0a1e63b4a26d8461bc9e8412408ba",
-                "reference": "e150756c40f0a1e63b4a26d8461bc9e8412408ba",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/d1e1d73a5a49e8f963572a46058da2e56d30566d",
+                "reference": "d1e1d73a5a49e8f963572a46058da2e56d30566d",
                 "shasum": ""
             },
             "require": {
@@ -754,7 +695,7 @@
                 "myclabs/deep-copy": "~1.3",
                 "php": "^5.6 || ^7.0",
                 "phpspec/prophecy": "^1.3.1",
-                "phpunit/php-code-coverage": "^4.0",
+                "phpunit/php-code-coverage": "^4.0.1",
                 "phpunit/php-file-iterator": "~1.4",
                 "phpunit/php-text-template": "~1.2",
                 "phpunit/php-timer": "^1.0.6",
@@ -807,7 +748,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2016-07-21 06:56:32"
+            "time": "2016-07-29 11:55:47"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -1203,12 +1144,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/object-enumerator.git",
-                "reference": "d4ca2fb70344987502567bc50081c03e6192fb26"
+                "reference": "d1e9bfd178891acc7a1d650e30b0645423af011d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/object-enumerator/zipball/d4ca2fb70344987502567bc50081c03e6192fb26",
-                "reference": "d4ca2fb70344987502567bc50081c03e6192fb26",
+                "url": "https://api.github.com/repos/sebastianbergmann/object-enumerator/zipball/d1e9bfd178891acc7a1d650e30b0645423af011d",
+                "reference": "d1e9bfd178891acc7a1d650e30b0645423af011d",
                 "shasum": ""
             },
             "require": {
@@ -1241,7 +1182,7 @@
             ],
             "description": "Traverses array structures and object graphs to enumerate all referenced objects",
             "homepage": "https://github.com/sebastianbergmann/object-enumerator/",
-            "time": "2016-01-28 13:25:10"
+            "time": "2016-07-29 07:38:17"
         },
         {
             "name": "sebastian/recursion-context",
@@ -1489,10 +1430,7 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "pyrex-fwi/sapar-id3": 20,
-        "james-heinrich/getid3": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

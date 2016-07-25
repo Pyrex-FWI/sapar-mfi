@@ -1,11 +1,11 @@
 {
-    "name": "yemistikris/sapar-mfi",
+    "name": "pyrex-fwi/sapar-mfi-bundle",
     "license": "proprietary",
     "type": "project",
     "repositories": [
         {
             "type": "path",
-            "url": "../standalone/"
+            "url": "../mfi/"
         }
     ],
     "autoload": {
@@ -34,7 +34,8 @@
         "sensio/distribution-bundle": "^5.0",
         "sensio/framework-extra-bundle": "^3.0.2",
         "incenteev/composer-parameter-handler": "^2.0",
-        "pyrex-fwi/sapar-mfi": "dev-master"
+        "pyrex-fwi/sapar-mfi": "dev-master",
+        "pyrex-fwi/id3": "dev-master"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",

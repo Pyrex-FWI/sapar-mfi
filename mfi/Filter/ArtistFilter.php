@@ -2,12 +2,12 @@
 
 namespace Sapar\Mfi\Filter;
 
-use PhpId3\Id3TagsReader;
-use Symfony\Component\Finder\SplFileInfo;
+use Sapar\Id3\Metadata\Id3Metadata;
+
 
 /**
- * Class GenreFilterIterator
- * @package Sapar\Mfi\Iterator
+ * Class FilterCollection
+ * @package Sapar\Mfi\Filter
  */
 class ArtistFilter implements FilterInterface
 {
@@ -15,29 +15,30 @@ class ArtistFilter implements FilterInterface
 
     public function __construct($name)
     {
-        $this->name = strtolower($name);
+        $this->name = $name;
     }
+
     /**
-     * Check whether the current element of the iterator is acceptable
-     * @link http://php.net/manual/en/filteriterator.accept.php
-     * @return bool true if the current element is acceptable, otherwise false.
-     * @since 5.1.0
+     * @return bool
      */
-    public function accept(SplFileInfo $file)
+    public function accept(Id3Metadata $metadata)
     {
-        if($file->getExtension() !== 'mp3') return;
-
-        try {
-
-            $getID3 = new \getID3();
-            $data = $getID3->analyze($file->getPathname());
-            if (isset($data['tags']['id3v2']['artist'][0])) {
-                $data = $data['tags']['id3v2']['artist'][0];
-                return strrpos(strtolower($data), $this->name) !== false ? true : false;
-            }
-        } catch (\Exception $e) {
-
+        $result = false;
+        if (strrpos(strtolower($this->name), strtolower($metadata->getArtist())) !== false) {
+            $result = true;
         }
-        return false;
+
+        return $result;
     }
+
+    /**
+     * @param FilterInterface $value
+     * @return bool
+     */
+    public function add(FilterInterface $value)
+    {
+        return parent::add($value);
+    }
+
+
 }

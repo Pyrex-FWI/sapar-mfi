@@ -1,3 +1,7 @@
+sapar_id3:
+    resource: "@SaparId3Bundle/Resources/config/routing.xml"
+    prefix:   /
+
 sapar_mfi:
     resource: "@SaparMfiBundle/Resources/config/routing.xml"
     prefix:   /

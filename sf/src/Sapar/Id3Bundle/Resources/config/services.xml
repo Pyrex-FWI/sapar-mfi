@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <!--
+    <services>
+        <service id="sapar_id3.example" class="Sapar\Id3Bundle\Example">
+            <argument type="service" id="service_id" />
+            <argument>plain_value</argument>
+            <argument>%parameter_name%</argument>
+        </service>
+    </services>
+    -->
+    <services>
+        <service id="sapar_id3.id3.manager" class="Sapar\Id3Bundle\Id3Manager">
+            <argument type="service" id="logger" on-invalid="ignore"/>
+            <call method="addWrapper">
+                <argument type="service" id="sapar_id3.id3_bin_wrapper.media_info" on-invalid="ignore"/>
+            </call>
+            <call method="addWrapper">
+                <argument type="service" id="sapar_id3.id3_bin_wrapper.id3v2" on-invalid="ignore"/>
+            </call>
+            <call method="addWrapper">
+                <argument type="service" id="sapar_id3.id3_bin_wrapper.eyed3" on-invalid="ignore"/>
+            </call>
+            <call method="addWrapper">
+                <argument type="service" id="sapar_id3.id3_bin_wrapper.metaflac" on-invalid="ignore"/>
+            </call>
+        </service>
+    </services>
+</container>

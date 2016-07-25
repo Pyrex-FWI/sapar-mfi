@@ -66,3 +66,13 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+sapar_id3:
+    media_info:
+        bin: '/usr/bin/mediainfo'
+    eyed3:
+        bin: '/usr/bin/eyeD3'
+    id3v2:
+        bin: '/usr/bin/id3v2'
+    metaflac:
+        bin: '/usr/bin/metaflac'
