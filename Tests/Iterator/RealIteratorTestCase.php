@@ -26,6 +26,13 @@ abstract class RealIteratorTestCase extends IteratorTestCase
             'toto/',
             'toto/.git/',
             'foo bar',
+            'VA-Maad_some-name-2016/',
+            'VA-Maad_some-name-2016/04-movado-jah_jah_be_praised.mp3',
+            'VA-Maad_some-name-2015/',
+            'VA-Maad_some-name-2015/04-movado-old.mp3',
+            'movado-you-see-me.mp3',
+            'AlbumDir-2016/',
+            'AlbumDir-2016/admiral_t-Brile_macome.mp3',
         );
 
         self::$files = self::toAbsolute(self::$files);

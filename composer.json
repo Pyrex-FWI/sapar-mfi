@@ -16,7 +16,8 @@
     "minimum-stability": "dev",
     "require": {
         "symfony/finder":"3.*",
-        "doctrine/collections": "^1.3"
+        "doctrine/collections": "^1.3",
+        "pyrex-fwi/sapar-id3": "dev-master"
     },
     "require-dev": {
         "phpunit/phpunit": "^5.4"

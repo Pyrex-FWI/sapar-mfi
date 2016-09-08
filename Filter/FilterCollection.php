@@ -35,7 +35,7 @@ class FilterCollection implements FilterInterface
                 $result = null;
                 continue;
             }
-            if ($result === true) {
+            if ($result === false) {
                 break;
             }
         }

@@ -6,10 +6,10 @@ use Sapar\Id3\Metadata\Id3Metadata;
 
 
 /**
- * Class FilterCollection
+ * Class FileNameFilter
  * @package Sapar\Mfi\Filter
  */
-class ArtistFilter implements FilterInterface
+class FileNameFilter implements FilterInterface
 {
     private $name;
 
@@ -24,7 +24,8 @@ class ArtistFilter implements FilterInterface
     public function accept(Id3Metadata $metadata)
     {
         $result = false;
-        if (strrpos(strtolower($this->name), strtolower($metadata->getArtist())) !== false) {
+        $source = $metadata->getFile()->getFilename();
+        if (strrpos(strtolower($source), strtolower($this->name)) !== false) {
             $result = true;
         }
 

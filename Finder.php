@@ -2,7 +2,7 @@
 
 namespace Sapar\Mfi;
 
-use Sapar\Mfi\Filter\ArtistFilter;
+use Sapar\Id3\Metadata\Id3Metadata;
 use Sapar\Mfi\Filter\FilterCollection;
 use Sapar\Mfi\Filter\FilterInterface;
 
@@ -32,9 +32,15 @@ class Finder extends \Symfony\Component\Finder\Finder
         $this->filterCollecterion = new FilterCollection();
     }
 
+    /**
+     * @param FilterInterface $mediaFilter
+     * @return $this
+     */
     public function addMediaFilter(FilterInterface $mediaFilter)
     {
         $this->filterCollecterion->add($mediaFilter);
+
+        return $this;
     }
 
     /**
@@ -55,9 +61,9 @@ class Finder extends \Symfony\Component\Finder\Finder
      * @param \SplFileInfo $file
      * @return \SplFileInfo
      */
-    public function beforeFilterCollection( \SplFileInfo $file)
+    public function beforeFilterCollection(\SplFileInfo $file)
     {
-        return $file;
+        return new Id3Metadata($file->getPathname());
     }
 
 

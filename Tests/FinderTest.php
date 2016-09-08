@@ -1,20 +1,17 @@
 <?php
 
-/*
- * This file is part of the Symfony package.
- *
- * (c) Fabien Potencier <fabien@symfony.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 namespace Sapar\Mfi\Tests;
 
 
+use Sapar\Mfi\Filter\FileNameFilter;
+use Sapar\Mfi\Filter\PathNameFilter;
 use Sapar\Mfi\Finder;
 use Sapar\Mfi\Tests\Iterator\RealIteratorTestCase;
 
+/**
+ * Class FinderTest
+ * @package Sapar\Mfi\Tests
+ */
 class FinderTest extends RealIteratorTestCase
 {
 
@@ -27,18 +24,53 @@ class FinderTest extends RealIteratorTestCase
     {
         $finder = $this->buildFinder();
         $this->assertSame($finder, $finder->files());
-        $this->assertIterator($this->toAbsolute(array('foo/bar3.flac', 'test.mp3', 'test.mp4', 'test1.mp3', 'test2.mp4')), $finder->in(self::$tmpDir)->getIterator());
+        $this->assertIterator(
+            $this->toAbsolute([
+                'AlbumDir-2016/admiral_t-Brile_macome.mp3',
+                'VA-Maad_some-name-2015/04-movado-old.mp3',
+                'VA-Maad_some-name-2016/04-movado-jah_jah_be_praised.mp3',
+                'foo/bar3.flac',
+                'movado-you-see-me.mp3',
+                'test.mp3',
+                'test.mp4',
+                'test1.mp3',
+                'test2.mp4',
+            ]),
+            $finder->in(self::$tmpDir)->getIterator()
+        );
 
         $finder = $this->buildFinder();
         $finder->files();
         $finder->directories();
         $finder->files();
-        $this->assertIterator($this->toAbsolute(array('foo/bar3.flac', 'test.mp3', 'test.mp4', 'test1.mp3', 'test2.mp4')), $finder->in(self::$tmpDir)->getIterator());
+        $this->assertIterator(
+            $this->toAbsolute([
+                'AlbumDir-2016/admiral_t-Brile_macome.mp3',
+                'VA-Maad_some-name-2015/04-movado-old.mp3',
+                'VA-Maad_some-name-2016/04-movado-jah_jah_be_praised.mp3',
+                'foo/bar3.flac',
+                'movado-you-see-me.mp3',
+                'test.mp3',
+                'test.mp4',
+                'test1.mp3',
+                'test2.mp4',
 
-        $it = $this->buildFinder()->in(["/Volumes/Extend/"])->files()->getIterator();
-        foreach ($it as $file) {
-            dump($file."");
-        }
+            ]),
+            $finder->in(self::$tmpDir)->getIterator()
+        );
+
+
+        $iterator = $this->buildFinder()
+            ->addMediaFilter(new FileNameFilter('movado'))
+            ->addMediaFilter(new PathNameFilter('2016'))
+            ->in([self::$tmpDir])->files()->getIterator();
+
+        $this->assertIterator(
+            $this->toAbsolute([
+                'VA-Maad_some-name-2016/04-movado-jah_jah_be_praised.mp3',
+            ]),
+            $iterator
+        );
 
     }
 
